@@ -1,14 +1,30 @@
-import { SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/clerk-react'
+import React from 'react'
+import './App.css'
+import Login from './loging.tsx'
+import Radio from './components/radio.tsx'
+import { SignedIn } from '@clerk/clerk-react'
 
-export default function App() {
+function App() {
   return (
-    <header>
-      <SignedOut>
-        <SignInButton />
-      </SignedOut>
+    <div
+      className="App"
+      style={{
+        padding: '3rem',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        gap: '2rem',
+      }}
+    >
+      {/* Radio at the top - shown only if signed in */}
       <SignedIn>
-        <UserButton />
+        <Radio />
       </SignedIn>
-    </header>
+
+      {/* Login/logout always shown */}
+      <Login />
+    </div>
   )
 }
+
+export default App
