@@ -1,6 +1,6 @@
 import './App.css';
-import Radio from './components/Radio.tsx';
-import Switch from './components/Switch.tsx';
+import Radio from './components/radio.tsx';
+import Switch from './components/switch.tsx';
 import { SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/clerk-react';
 
 
