@@ -20,7 +20,6 @@ const Root = () => {
       publishableKey={PUBLISHABLE_KEY}
       afterSignOutUrl="/"
       appearance={{
-    baseTheme: theme,
     variables: {
       colorPrimary: theme === 'dark' ? 'grey' : '#213547',
       colorTextSecondary: theme === 'dark' ? 'grey' : '#213547',
