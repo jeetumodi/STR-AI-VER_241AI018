@@ -57,7 +57,7 @@ export const Vortex = (props: VortexProps) => {
     const canvas = canvasRef.current;
     const ctx = canvas?.getContext("2d");
     if (!canvas || !ctx) return;
-    resize(canvas, ctx);
+    resize(canvas);
     initParticles();
     draw(canvas, ctx);
   };
@@ -142,7 +142,7 @@ export const Vortex = (props: VortexProps) => {
     ctx.restore();
   };
 
-  const resize = (canvas: HTMLCanvasElement, ctx: CanvasRenderingContext2D) => {
+  const resize = (canvas: HTMLCanvasElement) => {
     const { innerWidth, innerHeight } = window;
     canvas.width = innerWidth;
     canvas.height = innerHeight;
@@ -162,7 +162,7 @@ export const Vortex = (props: VortexProps) => {
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext("2d");
-    if (ctx) resize(canvas, ctx);
+    if (ctx) resize(canvas);
   };
 
   useEffect(() => {
