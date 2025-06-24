@@ -20,7 +20,7 @@ interface VortexProps {
 export const Vortex = (props: VortexProps) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
-  const animationFrameId = useRef<number | null>(null); // ✅ FIXED
+  const animationFrameId = useRef<number | null>(null);
   const tick = useRef(0);
   const particleCount = props.particleCount || 700;
   const particlePropCount = 9;
@@ -160,8 +160,9 @@ export const Vortex = (props: VortexProps) => {
 
   const handleResize = () => {
     const canvas = canvasRef.current;
-    const ctx = canvas?.getContext("2d");
-    if (canvas && ctx) resize(canvas, ctx);
+    if (!canvas) return;
+    const ctx = canvas.getContext("2d");
+    if (ctx) resize(canvas, ctx);
   };
 
   useEffect(() => {
