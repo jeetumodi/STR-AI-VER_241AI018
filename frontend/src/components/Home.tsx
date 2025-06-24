@@ -1,4 +1,3 @@
-import React from "react";
 import { Vortex } from "./ui/vortex";
 import { HoverEffect } from "./ui/card-hover-effect";
 
