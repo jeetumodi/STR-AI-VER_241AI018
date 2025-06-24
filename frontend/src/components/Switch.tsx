@@ -3,14 +3,14 @@ import styled from 'styled-components';
 
 const Switch = () => {
   const [isDark, setIsDark] = useState(() => {
-    // Read theme from localStorage on load
     const saved = localStorage.getItem('theme');
-    return saved === 'dark';
+    if (saved) return saved === 'dark';
+    return window.matchMedia('(prefers-color-scheme: dark)').matches;
   });
 
   useEffect(() => {
     const theme = isDark ? 'dark' : 'light';
-    document.documentElement.setAttribute('data-theme', theme);
+    document.documentElement.classList.toggle('dark', isDark);
     localStorage.setItem('theme', theme);
   }, [isDark]);
 
@@ -48,9 +48,7 @@ const Switch = () => {
   );
 };
 
-
-
-
+export default Switch;
 const StyledWrapper = styled.div`
   .theme-switch {
     --toggle-size: 20px;
@@ -199,7 +197,6 @@ const StyledWrapper = styled.div`
     transition: var(--transition);
   }
 
-  /* Actions for night mode */
   .theme-switch__checkbox:checked + .theme-switch__container {
     background-color: var(--container-night-bg);
   }
@@ -229,6 +226,3 @@ const StyledWrapper = styled.div`
     left: calc(100% - var(--circle-container-offset) - var(--circle-container-diameter) - 0.1em);
   }
 `;
-
-
-export default Switch;
