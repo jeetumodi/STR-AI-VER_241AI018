@@ -1,5 +1,6 @@
 import { Vortex } from "./ui/vortex";
 import { HoverEffect } from "./ui/card-hover-effect";
+import { AnimatedBrand } from "./ui/Animated-brand";
 
 export function Home() {
   const projects = [
@@ -51,6 +52,7 @@ export function Home() {
         className="flex items-center flex-col justify-center px-2 md:px-10 py-4 w-full h-full"
       >
         <div className="max-w-5xl mx-auto px-8">
+          <AnimatedBrand />
           <HoverEffect items={projects} />
         </div>
       </Vortex>

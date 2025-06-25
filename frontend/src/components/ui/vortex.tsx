@@ -153,7 +153,7 @@ export const Vortex = (props: VortexProps) => {
   const renderGlow = (canvas: HTMLCanvasElement, ctx: CanvasRenderingContext2D) => {
     ctx.save();
     ctx.globalCompositeOperation = "lighter";
-    ctx.filter = "blur(6px) brightness(150%)";
+    ctx.filter = "blur(10px) brightness(140%)";
     ctx.drawImage(canvas, 0, 0);
     ctx.restore();
   };
@@ -177,18 +177,26 @@ export const Vortex = (props: VortexProps) => {
   }, []);
 
   return (
-    <div className={cn("fixed inset-0 z-0 h-screen w-screen overflow-hidden", props.containerClassName)}>
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        ref={containerRef}
-        className="absolute inset-0 z-0 flex items-center justify-center bg-transparent will-change-transform"
+    <>
+      {/* Full-screen animated background (fixed) */}
+      <div
+        className={cn("fixed inset-0 z-0 w-screen h-screen", props.containerClassName)}
+        style={{ pointerEvents: "none" }}
       >
-        <canvas ref={canvasRef} className="w-full h-full block" />
-      </motion.div>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          ref={containerRef}
+          className="absolute inset-0 z-0 flex items-center justify-center bg-transparent will-change-transform"
+        >
+          <canvas ref={canvasRef} className="w-full h-full block" />
+        </motion.div>
+      </div>
+
+      {/* Foreground content (scrollable) */}
       <div className={cn("relative z-10", props.className)}>
         {props.children}
       </div>
-    </div>
+    </>
   );
 };
