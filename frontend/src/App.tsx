@@ -10,6 +10,7 @@ import { Blogs } from './components/Blogs.tsx';
 import { Practice } from './components/Practice.tsx';
 import { Interview } from './components/Interview.tsx';
 import { Routes, Route } from 'react-router-dom';
+import SyncUserWithSupabase from './components/SyncUserWithSupabase.tsx';
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
       </SignedOut>
 
       <SignedIn>
+        <SyncUserWithSupabase />
         <header className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between p-4 h-[70px] backdrop-blur-sm">
           <Logo />
           <div className="flex items-center gap-4">

@@ -2,13 +2,14 @@ import { Vortex } from "./ui/vortex";
 import { HoverEffect } from "./ui/card-hover-effect";
 import { AnimatedBrand } from "./ui/Animated-brand";
 
+
 export function Home() {
   const projects = [
     {
       title: "DSAverseWithAI",
       description:
         "DSAverseWithAI is your smart companion for mastering Data Structures and Algorithms. Learn faster with AI-powered guidance, interactive visuals, real-time code feedback, and tailored problem sets — all in one intelligent platform.",
-      link: "https://stripe.com",
+      link: "/",
     },
     {
       title: "Course",
