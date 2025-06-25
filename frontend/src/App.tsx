@@ -5,7 +5,7 @@ import { Logo } from './components/Logo.tsx';
 import CustomSignInButton from './components/CustomSignInButton.tsx';
 import { SignedIn, SignedOut, UserButton } from '@clerk/clerk-react';
 import { Home } from './components/Home.tsx';
-import { Course } from './components/Cousre.tsx';
+import { Course } from './components/Course.tsx';
 import { Blogs } from './components/Blogs.tsx';
 import { Practice } from './components/Practice.tsx';
 import { Interview } from './components/Interview.tsx';
